@@ -1,0 +1,35 @@
+/*
+ * TypeReference in Java (commonly used with Jackson)
+ * --------------------------------------------------
+ * Due to type erasure in Java, generic type information (like List<String>) is lost at runtime.
+ * For example: List<String> becomes just List at runtime.
+ *
+ * Libraries like Jackson (for JSON processing) need the full generic type information
+ * to correctly deserialize JSON into Java objects.
+ *
+ * To solve this, Jackson provides the TypeReference<T> class.
+ *
+ * Example:
+ * ObjectMapper mapper = new ObjectMapper();
+ * List<String> list = mapper.readValue(jsonString, new TypeReference<List<String>>() {});
+ *
+ * Here, an anonymous subclass of TypeReference is created, which allows Java to retain
+ * the full generic type (like List<String>) using reflection.
+ *
+ * This technique works for any complex generic type, such as:
+ * - List<Map<String, Object>>
+ * - Map<String, List<Integer>>
+ * - etc.
+ *
+ * When to use:
+ * ✔️ When deserializing complex generic types from JSON
+ * ✔️ When you need the full type information at runtime
+ *
+ * Note: This works only with libraries like Jackson that are designed to use it.
+ */
+
+
+/*
+services/UserBookingService/loginUser-
+We used optional so that if there's any case occurs when user not found, it will not give nullPointerException.
+*/

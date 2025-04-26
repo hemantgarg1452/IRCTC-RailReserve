@@ -1,0 +1,45 @@
+[
+  {
+    "train-id": "IRMHLD",
+    "train-no": 158932,
+    "seats": [
+      [0,0,0,0,0,0],
+      [0,0,0,0,0,0],
+      [0,0,0,0,0,0],
+      [0,0,0,0,0,0]
+    ],
+    "station-times": {
+      "Mumbai": "14:25:04",
+      "Bangalore": "12:02:14",
+      "Delhi": "04:15:45"
+    },
+    "stations": [
+      "Delhi",
+      "Mumbai",
+      "Jaipur",
+      "Pune"
+    ]
+  },
+  {
+    "train-id": "MHSTR",
+    "train-no": 25716,
+    "seats": [
+      [0,0,0,0,0,0],
+      [0,0,0,0,0,0],
+      [0,0,0,0,0,0],
+      [0,0,0,0,0,0]
+    ],
+    "station-times": {
+      "Nashik": "08:45:14",
+      "Ahmedabad": "15:45:10",
+      "Jaipur": "14:45:40"
+    },
+    "stations": [
+      "Nashik",
+      "Mumbai",
+      "Ahmedabad",
+      "Surat",
+      "Jaipur"
+    ]
+  }
+]
