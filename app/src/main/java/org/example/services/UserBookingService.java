@@ -2,6 +2,7 @@ package org.example.services;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.example.entities.Train;
 import org.example.entities.User;
 import org.example.utils.userServiceUtil;
 
@@ -26,8 +27,8 @@ public class UserBookingService {
     //We marked this "Final" so that USERs Path will always fix.
     private static final String USERS_PATH= "app/src/main/java/org/example/localDb/users.JSON";
 
-    public UserBookingService (User user1) throws IOException {  //constructor 1 (after user login)
-        this.user=user1;
+    public UserBookingService (User user) throws IOException {  //constructor 1 (after user login)
+        this.user=user;
         loadUserListFromFile();
     }
 
@@ -97,4 +98,11 @@ public class UserBookingService {
             return Boolean.FALSE;
         }
     }
+
+    // getTrains
+//    public List<Train> getTrains(String source, String destination){
+//        pending because of trainService
+//    }
+
+
 }
