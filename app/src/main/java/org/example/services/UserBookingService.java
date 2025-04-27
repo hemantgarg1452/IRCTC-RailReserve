@@ -8,6 +8,7 @@ import org.example.utils.userServiceUtil;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
@@ -100,9 +101,41 @@ public class UserBookingService {
     }
 
     // getTrains
-//    public List<Train> getTrains(String source, String destination){
-//        pending because of trainService
-//    }
+    public List<Train> getTrains(String source, String destination){
+        try {
+            TrainService trainService = new TrainService();
+            return trainService.searchTrains(source, destination);
+        } catch (IOException e){
+            return new ArrayList<>();
+        }
+    }
+
+    // fetch seats
+    public List<List<Integer>> fetchSeats(Train train){
+        return train.getSeats();
+    }
+
+    // Book train seat
+    public Boolean bookTrainSeat(Train train, int row, int seat){
+        try {
+            TrainService trainService = new TrainService();
+            List<List<Integer>> seats = train.getSeats();
+
+            if(row>=0 && row<seats.size() &&
+               seat>=0 && seat<seats.get(row).size()){
+                if(seats.get(row).get(seat)==0){
+                    seats.get(row).set(seat, 1);
+                    train.setSeats(seats);
+                    trainService.addTrain(train);
+                    return true;
+                }else
+                    return false;
+            } else
+                return false;
+        } catch(IOException e){
+            return Boolean.FALSE;
+        }
+    }
 
 
 }

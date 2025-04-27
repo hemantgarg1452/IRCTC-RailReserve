@@ -52,7 +52,7 @@ public class User {
 
     public void printTickets(){
         for (Tickets bookedTicket : bookedTickets) {
-            System.out.println(bookedTicket.getTicketsInfo());
+            System.out.println(bookedTicket.ticketsInfo());
         }
     }
 
